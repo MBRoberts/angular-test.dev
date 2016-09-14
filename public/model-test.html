@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="modelTest">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="description" content="Form">
+		<meta name="author" content="Ben Roberts">
+
+		<title>Model Test</title>
+
+		<!-- Bootstrap Core CSS CDN-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="css/model-test.css">
+
+	</head>
+	<body>
+		<div class="container left"><!--Floats Left-->
+			<form class="text-right" novalidate>
+
+				<!-- First Name Input -->
+				<div class="form-group">
+					<label for="first_name">First Name</label>
+					<input type="text" class="input-lg" id="first_name" ng-model="user.firstName" maxlength="50" required autofocus placeholder="First Name">
+				</div>
+
+				<!-- Last Name Input -->
+				<div class="form-group">
+					<label for="last_name">Last Name</label>
+					<input type="text" class="input-lg" id="last_name"  ng-model="user.lastName" maxlength="100" required placeholder="Last Name">
+				</div>
+
+				<!-- Email Input -->
+				<div class="form-group">
+					<label for="Email">Email</label>
+					<input type="email" class="input-lg ng-valid" id="email" ng-model="user.email"required placeholder="example@email.com">
+				</div>
+
+				<!-- Date of Birth Input -->
+				<div class="form-group">
+					<label for="dob">Date Of Birth</label>
+					<input type="date" class="input-lg" id="dob" ng-model="user.dob" required placeholder="Date Of Birth">
+				</div>
+
+				<!-- Password Input -->
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="input-lg" id="password" ng-model="user.password" minlength="8" required placeholder="Minimum 8 char">
+				</div>
+
+				<!-- Github Input -->
+				<div class="form-group">
+					<label for="github">GitHub URL</label>
+					<input type="url" class="input-lg" id="github" ng-model="user.github" placeholder="http://example.com">
+				</div>
+
+				<!-- Dropdown Menu Icons -->
+				<label>Icons</label>                 
+				<div class="btn-group">
+					<a class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+						<span>Choose</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-model="user.icon" ng-repeat="icon in ['yahoo-icon.png','droid.jpeg', 'sonic.png']">
+							<a href="#" ng-click="value = 'img/{{ icon }}"><img ng-src="img/{{ icon }}"></a>
+						</li>
+					</ul>
+				</div>
+
+			</form>
+		</div><!-- /.container left -->
+
+		<div class="container right">
+
+			<span class="right" id="display-icon"><img ng-src="img/{{value}}"></span>
+
+			<span class="right" id="display-name">{{ user.firstName }} {{ user.lastName }}</span><br>
+
+			<span class="right" id="display-email"> {{ user.email }}</span><br>
+
+			<span class="right" id="display-dob"> {{ user.dob | date }}</span><br>
+
+			<span class="right" id="display-github"> {{ user.github }} </span>
+
+		</div>
+
+
+		<!-- Jquery.js -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Bootstrap.js -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- Angular.js -->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<!-- Angular Module -->
+		<script type="text/javascript" src="js/modelTest.js"></script>
+
+	</body>
+</html>
